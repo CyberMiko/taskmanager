@@ -1,0 +1,16 @@
+<h2>{{ isEditMode ? 'Edit Task' : 'Create New Task' }}</h2>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="task.name" name="name" required>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" [(ngModel)]="task.description" name="description" required></textarea>
+  </div>
+  <div>
+    <label for="completed">Completed:</label>
+    <input type="checkbox" id="completed" [(ngModel)]="task.completed" name="completed">
+  </div>
+  <button type="submit">{{ isEditMode ? 'Update' : 'Create' }}</button>
+</form>
