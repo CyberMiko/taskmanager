@@ -2,9 +2,8 @@
 <ul>
   <li *ngFor="let task of tasks">
     {{ task.name }} - {{ task.description }}
-    <button (click)="deleteTask(task.id!)">Delete</button>
+    <button (click)="deleteTask(task.id)">Delete</button>
     <button [routerLink]="['/edit-task', task.id]">Edit</button>
-
   </li>
 </ul>
 <button routerLink="/add-task">Add New Task</button>

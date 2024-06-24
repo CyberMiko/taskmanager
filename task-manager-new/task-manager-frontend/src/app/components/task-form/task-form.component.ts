@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../models/task.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-form',
@@ -12,11 +12,7 @@ export class TaskFormComponent implements OnInit {
   task: Task = new Task();
   isEditMode: boolean = false;
 
-  constructor(
-    private taskService: TaskService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -30,7 +26,7 @@ export class TaskFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.isEditMode) {
-      this.taskService.updateTask(this.task.id!, this.task).subscribe(() => {
+      this.taskService.updateTask(this.task.id, this.task).subscribe(() => {
         this.router.navigate(['/']);
       });
     } else {
